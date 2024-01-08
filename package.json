@@ -31,7 +31,7 @@
     "publish": "npm run build && npm publish"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^6.0.1",
     "rimraf": "^2.6.3",
     "ts-node": "^8.3.0",
     "typescript": "^5.3.3"
