@@ -1,6 +1,5 @@
 {
   "name": "kunst",
-  "private": true,
   "version": "1.0.0",
   "description": "A CLI tool that bootstraps an ALX project.",
   "author": "Ifedayo Oni <ifedayoprince@gmail.com>",
@@ -28,7 +27,7 @@
     "build": "npm run clean && tsc",
     "test": "npm run build && ava --verbose",
     "bundle": "npm run build && pkg . --out-dir ./exec/",
-    "publish": "npm run build && npm publish"
+    "publish:npm": "npm run build && npm publish"
   },
   "devDependencies": {
     "ava": "^2.2.0",
