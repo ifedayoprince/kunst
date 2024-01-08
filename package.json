@@ -24,7 +24,7 @@
     "bundle": "npm run build && pkg . --out-dir ./exec/"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^6.0.1",
     "pkg": "^4.4.0",
     "rimraf": "^2.6.3",
     "ts-node": "^8.3.0",
