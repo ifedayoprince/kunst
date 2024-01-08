@@ -1,0 +1,11 @@
+The '0-add_integer' test module
+==============================
+
+Using ''add_integer''
+---------------------
+
+This file is in restructured text format.
+First import ''add_integer'' from the ''0-add_integer'' module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+

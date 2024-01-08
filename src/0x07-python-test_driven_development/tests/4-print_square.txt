@@ -1,0 +1,11 @@
+The '4-print_square' test module
+==============================
+
+Using ''print_square''
+---------------------
+
+This file is in restructured text format.
+First import ''print_square'' from the ''4-print_square'' module:
+
+    >>> print_square = __import__('4-print_square').print_square
+

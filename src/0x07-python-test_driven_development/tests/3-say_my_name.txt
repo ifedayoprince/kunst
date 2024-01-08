@@ -1,0 +1,11 @@
+The '3-say_my_name' test module
+==============================
+
+Using ''say_my_name''
+---------------------
+
+This file is in restructured text format.
+First import ''say_my_name'' from the ''3-say_my_name'' module:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+

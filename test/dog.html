@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+
+      <script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({"userId":482137,"visitorType":"student","batch":{"id":126,"fullNameWithC":"LOS-0823 (C#19)","schoolLocation":{"id":3,"name":"Lagos"}},"curriculum":{"id":1,"name":"SE Foundations"}});
+
+    window.gtm_user_custom_event = function (name, options) {
+      if (typeof name === 'undefined') {
+        return;
+      }
+
+      window.dataLayer.push({
+        customEventOptions: typeof options !== 'undefined' ? options : {},
+        event: name,
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N4C8MF2');</script>
+  <!-- End Google Tag Manager -->
+
+
+    <title>Project: 0x07. Python - Test-driven development | Lagos Intranet</title>
+
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" media="all" href="/assets/application_alx-8941610700856adf24a6e389e4f744b0cefa6db7b3bc8157ea63b16ddcf11590.css" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="/assets/application-e108fb75f939d72d47f0e99c7163aee8c5572427c1e62e5b50334df42d03f2d3.js"></script>
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon_alx.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="1PF1zZ_KB4ZAxdHlF7nJtSr8VyvqHY0YnIZwk2xMY2b7oCyjB5RQDQC9wnb1FRhxuu0OpzFTX9SYVz14FfTDGw" />
+
+      <link rel="apple-touch-icon" href="/apple-touch-icon_alx.png">
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+
+      <!-- intro.js for interactive onboarding -->
+
+      <!-- React -->
+      <script src="/packs/js/application-5e52ac700b37dc1d7140.js"></script>
+      <link rel="stylesheet" media="screen" href="/packs/css/application-87456da7.css" />
+  </head>
+
+  <body class="signed_in env_production notranslate"
+        translate="no"
+        class="notranslate"
+        data-theme-suffix="_alx">
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4C8MF2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+      <input type="hidden" id="hbtn-slack-url" value="https://alx-students.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/482/137/thumb/BackgroundEraser_20230530_215733836.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240108%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240108T120300Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a7e8b73647ec60f15a7930dd89d810f34d17d6816e6f29e065ac7ca0ade447ac')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/482/137/thumb/BackgroundEraser_20230530_215733836.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240108%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240108T120300Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a7e8b73647ec60f15a7930dd89d810f34d17d6816e6f29e065ac7ca0ade447ac')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+
+    <main>
+        <div id="layout-bars">
+          
+          
+          
+          
+          
+          
+        </div>
+
+      <article class="">
+
+        
+<div class="project row">
+  <div class="col-xs-12 col-md-10 col-lg-8 contains-images">
+
+      <h1 class="gap">0x07. Python - Test-driven development</h1>
+
+  <div data-react-class="tags/Tags" data-react-props="{&quot;tags&quot;:[{&quot;id&quot;:19,&quot;value&quot;:&quot;Python&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:25,&quot;value&quot;:&quot;UnitTests&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:26,&quot;value&quot;:&quot;TDD&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;}]}" data-react-cache-id="tags/Tags-0"></div>
+
+  <div data-react-class="projects/ProjectMetadata" data-react-props="{&quot;metadata&quot;:{&quot;author&quot;:&quot;Guillaume&quot;,&quot;weight&quot;:1,&quot;correction&quot;:{&quot;released&quot;:true,&quot;requires_auto_correction&quot;:true,&quot;requires_manual_correction&quot;:false},&quot;bpi&quot;:{&quot;current&quot;:false,&quot;in_second_deadline&quot;:true,&quot;starts_at&quot;:&quot;2024-01-02T06:00:00.000+01:00&quot;,&quot;ends_at&quot;:&quot;2024-01-08T06:00:00.000+01:00&quot;,&quot;second_deadline_at&quot;:&quot;2024-01-11T06:00:00.000+01:00&quot;}}}" data-react-cache-id="projects/ProjectMetadata-0"></div>
+
+  <div class="sm-gap clean well">
+  <h4>In a nutshell&hellip;</h4>
+  <ul>
+
+
+      <li>
+        <strong>Auto QA review:</strong>
+          0.0/167 mandatory
+            &
+            0.0/104 optional
+      </li>
+    <li>
+      <strong>Altogether:</strong>
+        &nbsp;<strong>0.0%</strong>
+        <ul>
+          <li>Mandatory: 0.0%</li>
+            <li>Optional: 0.0%</li>
+            <li>
+              Calculation:&nbsp;
+                  0.0%
+                    + (0.0% * 0.0%)
+              &nbsp;==&nbsp;<strong>0.0%</strong>
+            </li>
+        </ul>
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+    
+
+
+    <div id="project_id" style="display: none" data-project-id="246"></div>
+
+
+
+      
+
+        <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Concepts</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        <em>For this project, we expect you to look at this concept:</em>
+      </p>
+
+      <ul>
+          <li>
+            <a href="/concepts/47">Never forget a test</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+
+      <div class="panel panel-default" id="project-description">
+  <div class="panel-body">
+    <p><img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/246/giphy-4.gif" alt="" loading='lazy' style="" /></p>
+
+<h2>Background Context</h2>
+
+<h3>Important notice on intranet checks for Python projects</h3>
+
+<p>Starting from today:</p>
+
+<ul>
+<li>Based on the requirements of each task, <strong>you should always write the documentation (module(s) + function(s)) and tests first</strong>, before you actually code anything</li>
+<li>The intranet checks for Python projects won&rsquo;t be released before their first deadline, in order for you to focus more on TDD and think about all possible cases</li>
+<li>We strongly encourage you to work together on test cases, so that you don&rsquo;t miss any edge case. <strong>But not in the implementation of them!</strong></li>
+<li><strong>Don&rsquo;t trust the user</strong>, always think about all possible edge cases</li>
+</ul>
+
+<h2>Resources</h2>
+
+<p><strong>Read or watch</strong>:</p>
+
+<ul>
+<li><a href="/rltoken/BwZJVq2MQ1_Vg_3gphoitQ" title="doctest — Test interactive Python examples" target="_blank">doctest — Test interactive Python examples</a> (<em>until &ldquo;26.2.3.7. Warnings&rdquo; included</em>)</li>
+<li><a href="/rltoken/96kLRRIOHzsn3VDDXT21HA" title="doctest – Testing through documentation" target="_blank">doctest – Testing through documentation</a> </li>
+<li><a href="/rltoken/wfuUl81Q3Nku1qCzdDHAfA" title="Unit Tests in Python" target="_blank">Unit Tests in Python</a></li>
+<li><a href="/rltoken/1v-d9Ol13JabJq8UI6MIPg" title="Unittest module" target="_blank">Unittest module</a></li>
+<li><a href="/rltoken/lB65hNMXBziXy4A0YLIOog" title="Interactive and Non-interactive tests" target="_blank">Interactive and Non-interactive tests</a></li>
+</ul>
+
+<h2>Learning Objectives</h2>
+
+<p>At the end of this project, you are expected to be able to <a href="/rltoken/tYtzLvssHW_9zR6SZQlNrQ" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
+
+<h3>General</h3>
+
+<ul>
+<li>Why Python programming is awesome</li>
+<li>What&rsquo;s an interactive test</li>
+<li>Why tests are important</li>
+<li>How to write Docstrings to create tests</li>
+<li>How to write documentation for each module and function</li>
+<li>What are the basic option flags to create tests</li>
+<li>How to find edge cases</li>
+</ul>
+
+<h3>Copyright - Plagiarism</h3>
+
+<ul>
+<li>You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.</li>
+<li>You will not be able to meet the objectives of this or any following project by copying and pasting someone else&rsquo;s work. </li>
+<li>You are not allowed to publish any content of this project.</li>
+<li>Any form of plagiarism is strictly forbidden and will result in removal from the program.</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<h3>Python Scripts</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)</li>
+<li>All your files should end with a new line</li>
+<li>The first line of all your files should be exactly <code>#!/usr/bin/python3</code></li>
+<li>A <code>README.md</code> file, at the root of the folder of the project, is mandatory</li>
+<li>Your code should use the pycodestyle (version <code>2.8.*</code>)</li>
+<li>All your files must be executable</li>
+<li>The length of your files will be tested using <code>wc</code></li>
+</ul>
+
+<h3>Python Test Cases</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files should end with a new line</li>
+<li>All your test files should be inside a folder <code>tests</code></li>
+<li>All your test files should be text files (extension: <code>.txt</code>)</li>
+<li>All your tests should be executed by using this command: <code>python3 -m doctest ./tests/*</code></li>
+<li>All your modules should have a documentation (<code>python3 -c &#39;print(__import__(&quot;my_module&quot;).__doc__)&#39;</code>)</li>
+<li>All your functions should have a documentation (<code>python3 -c &#39;print(__import__(&quot;my_module&quot;).my_function.__doc__)&#39;</code>)</li>
+<li>A documentation is not a simple word, it&rsquo;s a real sentence explaining what&rsquo;s the purpose of the module, class or method (the length of it will be verified)</li>
+<li>We strongly encourage you to work together on test cases, so that you don&rsquo;t miss any edge case &ndash; The Checker is checking for tests!</li>
+</ul>
+
+  </div>
+</div>
+
+
+      
+
+        <div class="panel panel-default" id="project-quiz-questions-title">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Quiz questions
+      </h3>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="alert alert-info">
+          <strong>Great!</strong>
+          You've completed the quiz successfully! Keep going!
+          <span id="quiz_questions_collapse_toggle"></span>
+        </div>
+
+      <section class="quiz_questions_show_container">
+          <div class="quiz_question_item_container" data-role="quiz_question307" data-position="2">
+            <div class=" clearfix" id="quiz_question-307">
+
+    <h4 class="quiz_question">
+        
+        Question #0
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this a standardized way to comment a function in Python?</p>
+
+<pre><code>&quot;&quot;&quot;&quot; Addition function &quot;&quot;&quot;
+def add(a, b):
+    return a + b
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="307">
+                <li class="">
+
+  <input type="radio" name="307" id="307-1503344960922" value="1503344960922" data-quiz-answer-id="1503344960922" data-quiz-question-id="307" disabled="disabled" />
+  <label for="307-1503344960922"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="307" id="307-1503344963517" value="1503344963517" data-quiz-answer-id="1503344963517" data-quiz-question-id="307" disabled="disabled" checked="checked" />
+  <label for="307-1503344963517"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question310" data-position="5">
+            <div class=" clearfix" id="quiz_question-310">
+
+    <h4 class="quiz_question">
+        
+        Question #1
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this module correctly commented?</p>
+
+<pre><code>#!/usr/bin/python3
+&quot;&quot;&quot; 
+    My calculation module
+&quot;&quot;&quot;
+import sys
+...
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="310">
+                <li class="">
+
+  <input type="radio" name="310" id="310-1503344983798" value="1503344983798" data-quiz-answer-id="1503344983798" data-quiz-question-id="310" disabled="disabled" checked="checked" />
+  <label for="310-1503344983798"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="310" id="310-1503344986683" value="1503344986683" data-quiz-answer-id="1503344986683" data-quiz-question-id="310" disabled="disabled" />
+  <label for="310-1503344986683"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question311" data-position="6">
+            <div class=" clearfix" id="quiz_question-311">
+
+    <h4 class="quiz_question">
+        
+        Question #2
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this module correctly commented?</p>
+
+<pre><code>#!/usr/bin/python3
+import sys
+
+&quot;&quot;&quot; 
+    My calculation module
+&quot;&quot;&quot;
+...
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="311">
+                <li class="">
+
+  <input type="radio" name="311" id="311-1503344991890" value="1503344991890" data-quiz-answer-id="1503344991890" data-quiz-question-id="311" disabled="disabled" />
+  <label for="311-1503344991890"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="311" id="311-1503344994843" value="1503344994843" data-quiz-answer-id="1503344994843" data-quiz-question-id="311" disabled="disabled" checked="checked" />
+  <label for="311-1503344994843"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+        <div class="alert alert-info">
+            <h4>Tips:</h4>
+            <p>Docstring must be before import statements</p>
+
+        </div>
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question312" data-position="7">
+            <div class=" clearfix" id="quiz_question-312">
+
+    <h4 class="quiz_question">
+        
+        Question #3
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Based on this code, what should all the test cases be? (select multiple)</p>
+
+<pre><code>def uniq(list):
+    &quot;&quot;&quot; Returns unique values of a list &quot;&quot;&quot;
+    u_list = []
+    for item in list:
+        if item not in u_list:
+            u_list.append(item)
+    return u_list
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="312">
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345131399" value="1503345131399" data-quiz-answer-id="1503345131399" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345131399"><p>not a list argument (ex: passing a dictionary to the method)</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345056727" value="1503345056727" data-quiz-answer-id="1503345056727" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345056727"><p>list with twice the same element (same type)</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345028279" value="1503345028279" data-quiz-answer-id="1503345028279" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345028279"><p>empty list</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345098716" value="1503345098716" data-quiz-answer-id="1503345098716" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345098716"><p>list with multiple types (integer, string, etc&hellip;)</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345080984" value="1503345080984" data-quiz-answer-id="1503345080984" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345080984"><p>list with more than 2 times the same element (same type)</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345045706" value="1503345045706" data-quiz-answer-id="1503345045706" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345045706"><p>list with 2 different element (same type)</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="312" id="312-1503345034707" value="1503345034707" data-quiz-answer-id="1503345034707" data-quiz-question-id="312" disabled="disabled" checked="checked" />
+  <label for="312-1503345034707"><p>list with one element (any type)</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question306" data-position="1">
+            <div class=" clearfix" id="quiz_question-306">
+
+    <h4 class="quiz_question">
+        
+        Question #4
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this a standardized way to comment a function in Python?</p>
+
+<pre><code>/* Addition function */
+def add(a, b):
+    return a + b
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="306">
+                <li class="">
+
+  <input type="radio" name="306" id="306-1503344951634" value="1503344951634" data-quiz-answer-id="1503344951634" data-quiz-question-id="306" disabled="disabled" />
+  <label for="306-1503344951634"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="306" id="306-1503344954613" value="1503344954613" data-quiz-answer-id="1503344954613" data-quiz-question-id="306" disabled="disabled" checked="checked" />
+  <label for="306-1503344954613"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question309" data-position="4">
+            <div class=" clearfix" id="quiz_question-309">
+
+    <h4 class="quiz_question">
+        
+        Question #5
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this a standardized way to comment a function in Python?</p>
+
+<pre><code>def add(a, b):
+    &quot;&quot;&quot; Addition function &quot;&quot;&quot;
+    return a + b
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="309">
+                <li class="">
+
+  <input type="radio" name="309" id="309-1503344976219" value="1503344976219" data-quiz-answer-id="1503344976219" data-quiz-question-id="309" disabled="disabled" checked="checked" />
+  <label for="309-1503344976219"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="309" id="309-1503344978977" value="1503344978977" data-quiz-answer-id="1503344978977" data-quiz-question-id="309" disabled="disabled" />
+  <label for="309-1503344978977"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question308" data-position="3">
+            <div class=" clearfix" id="quiz_question-308">
+
+    <h4 class="quiz_question">
+        
+        Question #6
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Is this a standardized way to comment a function in Python?</p>
+
+<pre><code>##########
+# Addition function
+##########
+def add(a, b):
+    return a + b
+</code></pre>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="308">
+                <li class="">
+
+  <input type="radio" name="308" id="308-1503344968631" value="1503344968631" data-quiz-answer-id="1503344968631" data-quiz-question-id="308" disabled="disabled" />
+  <label for="308-1503344968631"><p>Yes</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="308" id="308-1503344972405" value="1503344972405" data-quiz-answer-id="1503344972405" data-quiz-question-id="308" disabled="disabled" checked="checked" />
+  <label for="308-1503344972405"><p>No</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+
+      </section>
+    </div>
+  </div>
+
+
+        
+          <h2 class="gap">Tasks</h2>
+
+    <div data-role="task1167" data-position="1" id="task-num-0">
+      <div class="panel panel-default task-card " id="task-1167">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. Integers addition
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1167" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that adds 2 integers.</p>
+
+<ul>
+<li>Prototype: <code>def add_integer(a, b=98):</code></li>
+<li><code>a</code> and <code>b</code> must be integers or floats, otherwise raise a <code>TypeError</code> exception with the message <code>a must be an integer</code> or <code>b must be an integer</code></li>
+<li><code>a</code> and <code>b</code> must be first casted to integers if they are float</li>
+<li>Returns an integer: the addition of <code>a</code> and <code>b</code></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 0-main.py
+#!/usr/bin/python3
+add_integer = __import__(&#39;0-add_integer&#39;).add_integer
+
+print(add_integer(1, 2))
+print(add_integer(100, -2))
+print(add_integer(2))
+print(add_integer(100.3, -2))
+try:
+    print(add_integer(4, &quot;School&quot;))
+except Exception as e:
+    print(e)
+try:
+    print(add_integer(None))
+except Exception as e:
+    print(e)
+
+guillaume@ubuntu:~/0x07$ ./0-main.py
+3
+98
+100
+98
+b must be an integer
+a must be an integer
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/0-add_integer.txt | tail -2
+9 passed and 0 failed.
+Test passed.
+guillaume@ubuntu:~/0x07$ python3 -c &#39;print(__import__(&quot;0-add_integer&quot;).__doc__)&#39; | wc -l
+5
+guillaume@ubuntu:~/0x07$ python3 -c &#39;print(__import__(&quot;0-add_integer&quot;).add_integer.__doc__)&#39; | wc -l
+3
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>0-add_integer.py, tests/0-add_integer.txt</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm yes" data-task-id="1167">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1167" data-batch-id="126" data-toggle="modal" data-target="#task-1167-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1167-users-done-modal" data-task-id="1167" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "0. Integers addition"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1167-modal-button" data-task-id="1167" data-toggle="modal" data-target="#task-test-correction-1167-correction-modal" id="task-num-0-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1167}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1167-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "0. Integers addition"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1167">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1167">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1167">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1167}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1167" data-toggle="modal" data-target="#task-qa-review-1167-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1167}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1167-modal" data-correction-id="21337720" data-task-id="1167">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">0. Integers addition</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1169" data-position="3" id="task-num-1">
+      <div class="panel panel-default task-card " id="task-1169">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. Divide a matrix
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1169" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that divides all elements of a matrix.</p>
+
+<ul>
+<li>Prototype: <code>def matrix_divided(matrix, div):</code></li>
+<li><code>matrix</code> must be a list of lists of integers or floats, otherwise raise a <code>TypeError</code> exception with the message <code>matrix must be a matrix (list of lists) of integers/floats</code></li>
+<li>Each row of the <code>matrix</code> must be of the same size, otherwise raise a <code>TypeError</code> exception with the message <code>Each row of the matrix must have the same size</code></li>
+<li><code>div</code> must be a number (integer or float), otherwise raise a <code>TypeError</code> exception with the message <code>div must be a number</code></li>
+<li><code>div</code> can&rsquo;t be equal to <code>0</code>, otherwise raise a <code>ZeroDivisionError</code> exception with the message <code>division by zero</code></li>
+<li>All elements of the matrix should be divided by <code>div</code>, rounded to 2 decimal places </li>
+<li>Returns a new matrix</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 2-main.py
+#!/usr/bin/python3
+matrix_divided = __import__(&#39;2-matrix_divided&#39;).matrix_divided
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+print(matrix_divided(matrix, 3))
+print(matrix)
+
+guillaume@ubuntu:~/0x07$ ./2-main.py
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+[[1, 2, 3], [4, 5, 6]]
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/2-matrix_divided.txt | tail -2
+5 passed and 0 failed.
+Test passed.
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+<p>Note: you might have a different number of tests than in the above example. As usual, your tests should cover all possible cases.</p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>2-matrix_divided.py, tests/2-matrix_divided.txt</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm yes" data-task-id="1169">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1169" data-batch-id="126" data-toggle="modal" data-target="#task-1169-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1169-users-done-modal" data-task-id="1169" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "1. Divide a matrix"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1169-modal-button" data-task-id="1169" data-toggle="modal" data-target="#task-test-correction-1169-correction-modal" id="task-num-1-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1169}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1169-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "1. Divide a matrix"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1169">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1169">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1169">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1169}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1169" data-toggle="modal" data-target="#task-qa-review-1169-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1169}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1169-modal" data-correction-id="21337720" data-task-id="1169">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">1. Divide a matrix</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1170" data-position="4" id="task-num-2">
+      <div class="panel panel-default task-card " id="task-1170">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. Say my name
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1170" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that prints <code>My name is &lt;first name&gt; &lt;last name&gt;</code></p>
+
+<ul>
+<li>Prototype: <code>def say_my_name(first_name, last_name=&quot;&quot;):</code></li>
+<li><code>first_name</code> and <code>last_name</code> must be strings otherwise, raise a <code>TypeError</code> exception with the message <code>first_name must be a string</code> or <code>last_name must be a string</code></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 3-main.py
+#!/usr/bin/python3
+say_my_name = __import__(&#39;3-say_my_name&#39;).say_my_name
+
+say_my_name(&quot;John&quot;, &quot;Smith&quot;)
+say_my_name(&quot;Walter&quot;, &quot;White&quot;)
+say_my_name(&quot;Bob&quot;)
+try:
+    say_my_name(12, &quot;White&quot;)
+except Exception as e:
+    print(e)
+
+guillaume@ubuntu:~/0x07$ ./3-main.py | cat -e
+My name is John Smith$
+My name is Walter White$
+My name is Bob $
+first_name must be a string$
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/3-say_my_name.txt | tail -2
+5 passed and 0 failed.
+Test passed.
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+<p>Note: you might have a different number of tests than in the above example. As usual, your tests should cover all possible cases.</p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>3-say_my_name.py, tests/3-say_my_name.txt</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1170">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1170" data-batch-id="126" data-toggle="modal" data-target="#task-1170-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1170-users-done-modal" data-task-id="1170" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "2. Say my name"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1170-modal-button" data-task-id="1170" data-toggle="modal" data-target="#task-test-correction-1170-correction-modal" id="task-num-2-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1170}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1170-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "2. Say my name"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1170">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1170">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1170">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1170}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1170" data-toggle="modal" data-target="#task-qa-review-1170-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1170}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1170-modal" data-correction-id="21337720" data-task-id="1170">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">2. Say my name</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1171" data-position="5" id="task-num-3">
+      <div class="panel panel-default task-card " id="task-1171">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. Print square
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1171" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that prints a square with the character <code>#</code>.</p>
+
+<ul>
+<li>Prototype: <code>def print_square(size):</code></li>
+<li><code>size</code> is the size length of the square</li>
+<li><code>size</code> must be an integer, otherwise raise a <code>TypeError</code> exception with the message <code>size must be an integer</code></li>
+<li>if <code>size</code> is less than <code>0</code>, raise a <code>ValueError</code> exception with the message <code>size must be &gt;= 0</code></li>
+<li>if <code>size</code> is a float and is less than 0, raise a <code>TypeError</code> exception with the message <code>size must be an integer</code></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 4-main.py
+#!/usr/bin/python3
+print_square = __import__(&#39;4-print_square&#39;).print_square
+
+print_square(4)
+print(&quot;&quot;)
+print_square(10)
+print(&quot;&quot;)
+print_square(0)
+print(&quot;&quot;)
+print_square(1)
+print(&quot;&quot;)
+try:
+    print_square(-1)
+except Exception as e:
+    print(e)
+print(&quot;&quot;)
+
+guillaume@ubuntu:~/0x07$ ./4-main.py
+####
+####
+####
+####
+
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+
+#
+
+size must be &gt;= 0
+
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/4-print_square.txt
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>4-print_square.py, tests/4-print_square.txt</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1171">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1171" data-batch-id="126" data-toggle="modal" data-target="#task-1171-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1171-users-done-modal" data-task-id="1171" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "3. Print square"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1171-modal-button" data-task-id="1171" data-toggle="modal" data-target="#task-test-correction-1171-correction-modal" id="task-num-3-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1171}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1171-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "3. Print square"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1171">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1171">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1171">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1171}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1171" data-toggle="modal" data-target="#task-qa-review-1171-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1171}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1171-modal" data-correction-id="21337720" data-task-id="1171">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">3. Print square</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1172" data-position="6" id="task-num-4">
+      <div class="panel panel-default task-card " id="task-1172">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      4. Text indentation
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1172" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that prints a text with 2 new lines after each of these characters: <code>.</code>, <code>?</code> and <code>:</code></p>
+
+<ul>
+<li>Prototype: <code>def text_indentation(text):</code></li>
+<li><code>text</code> must be a string, otherwise raise a <code>TypeError</code> exception with the message <code>text must be a string</code></li>
+<li>There should be no space at the beginning or at the end of each printed line</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 5-main.py
+#!/usr/bin/python3
+text_indentation = __import__(&#39;5-text_indentation&#39;).text_indentation
+
+text_indentation(&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+beatiorem! Iam ruinas videres&quot;&quot;&quot;)
+
+guillaume@ubuntu:~/0x07$ ./5-main.py | cat -e
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.$
+$
+Quonam modo?$
+$
+Utrum igitur tibi litteram videor an totas paginas commovere?$
+$
+Non autem hoc:$
+$
+igitur ne illud quidem.$
+$
+Fortasse id optimum, sed ubi illud:$
+$
+Plus semper voluptatis?$
+$
+Teneo, inquit, finem illi videri nihil dolere.$
+$
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.$
+$
+Si id dicis, vicimus.$
+$
+Inde sermone vario sex illa a Dipylo stadia confecimus.$
+$
+Sin aliud quid voles, postea.$
+$
+Quae animi affectio suum cuique tribuens atque hanc, quam dico.$
+$
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videresguillaume@ubuntu:~/0x07$
+guillaume@ubuntu:~/0x07$ python3 -m doctest -v ./tests/5-text_indentation.txt
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>5-text_indentation.py, tests/5-text_indentation.txt</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1172">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1172" data-batch-id="126" data-toggle="modal" data-target="#task-1172-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1172-users-done-modal" data-task-id="1172" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "4. Text indentation"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1172-modal-button" data-task-id="1172" data-toggle="modal" data-target="#task-test-correction-1172-correction-modal" id="task-num-4-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1172}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1172-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "4. Text indentation"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1172">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1172">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1172">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1172}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1172" data-toggle="modal" data-target="#task-qa-review-1172-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1172}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1172-modal" data-correction-id="21337720" data-task-id="1172">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">4. Text indentation</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1857" data-position="7" id="task-num-5">
+      <div class="panel panel-default task-card " id="task-1857">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      5. Max integer - Unittest
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1857" data-correction-id="21337720">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Since the beginning you have been creating &ldquo;Interactive tests&rdquo;. For this exercise, you will add Unittests.</p>
+
+<p>In this task, you will write unittests for the function <code>def max_integer(list=[]):</code>.</p>
+
+<ul>
+<li>Your test file should be inside a folder <code>tests</code></li>
+<li>You have to use the <a href="/rltoken/hX5a13o-1mXGTQASWBitFQ" title="unittest module" target="_blank">unittest module</a> </li>
+<li>Your test file should be python files (extension: <code>.py</code>)</li>
+<li>Your test file should be executed by using this command: <code>python3 -m unittest tests.6-max_integer_test</code> </li>
+<li>All tests you make must be passable by the function below</li>
+<li>We strongly encourage you to work together on test cases, so that you don&rsquo;t miss any edge case</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x07$ cat 6-max_integer.py
+#!/usr/bin/python3
+&quot;&quot;&quot;Module to find the max integer in a list
+&quot;&quot;&quot;
+
+
+def max_integer(list=[]):
+    &quot;&quot;&quot;Function to find and return the max integer in a list of integers
+        If the list is empty, the function returns None
+    &quot;&quot;&quot;
+    if len(list) == 0:
+        return None
+    result = list[0]
+    i = 1
+    while i &lt; len(list):
+        if list[i] &gt; result:
+            result = list[i]
+        i += 1
+    return result
+
+guillaume@ubuntu:~/0x07$ 
+guillaume@ubuntu:~/0x07$ cat 6-main.py
+#!/usr/bin/python3
+max_integer = __import__(&#39;6-max_integer&#39;).max_integer
+
+print(max_integer([1, 2, 3, 4]))
+print(max_integer([1, 3, 4, 2]))
+guillaume@ubuntu:~/0x07$
+guillaume@ubuntu:~/0x07$ ./6-main.py
+4
+4
+guillaume@ubuntu:~/0x07$
+guillaume@ubuntu:~/0x07$ python3 -m unittest tests.6-max_integer_test 2&gt;&amp;1 | tail -1
+OK
+guillaume@ubuntu:~/0x07$
+guillaume@ubuntu:~/0x07$ head -7 tests/6-max_integer_test.py 
+#!/usr/bin/python3
+&quot;&quot;&quot;Unittest for max_integer([..])
+&quot;&quot;&quot;
+import unittest
+max_integer = __import__(&#39;6-max_integer&#39;).max_integer
+
+class TestMaxInteger(unittest.TestCase):
+guillaume@ubuntu:~/0x07$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x07-python-test_driven_development</code></li>
+            <li>File: <code>tests/6-max_integer_test.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1857">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1857" data-batch-id="126" data-toggle="modal" data-target="#task-1857-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1857-users-done-modal" data-task-id="1857" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "5. Max integer - Unittest"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1857-modal-button" data-task-id="1857" data-toggle="modal" data-target="#task-test-correction-1857-correction-modal" id="task-num-5-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1857}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1857-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "5. Max integer - Unittest"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1857">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1857">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1857">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1857}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1857" data-toggle="modal" data-target="#task-qa-review-1857-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1857}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1857-modal" data-correction-id="21337720" data-task-id="1857">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">5. Max integer - Unittest</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+
+    <p class="lg-gap">
+      <form class="button_to" method="post" action="/projects/246/unlock_optionals"><input id="unlock_optional_btn" class="btn btn-primary btn-block" data-confirm="Are you sure? Make sure you focused on the mandatory tasks first" data-disable-with="Unlocking 3 advanced tasks..." data-gtm-custom-event-name="project_unlock_advanced_tasks" type="submit" value="Done with the mandatory tasks? Unlock 3 advanced tasks now!" /><input type="hidden" name="authenticity_token" value="_aRenc2gpRUQF6h6Xxn5PGuHrMChoEPiPq4PXts-RKiBb667l42t0N04MO4UZF3DuNFUrhM5qYDZtFHP3KctXA" autocomplete="off" /></form>
+    </p>
+
+
+
+
+          <div class="modal fade" id="container-specs-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandbox</h4></div><div class="modal-body"><div data-react-class="user_containers/ContainerSpecs" data-react-props="{&quot;containerModelName&quot;:&quot;Sandbox&quot;,&quot;containerSpecs&quot;:[{&quot;available&quot;:true,&quot;description&quot;:&quot;\u003cp\u003eBasic Ubuntu 20.04, with vim, emacs, curl, wget and all needed for Foundations\u003c/p\u003e\n&quot;,&quot;id&quot;:39,&quot;name&quot;:&quot;Ubuntu 20.04&quot;,&quot;online&quot;:true,&quot;container&quot;:{&quot;container_id&quot;:null,&quot;id&quot;:587811,&quot;restart_uri&quot;:&quot;/user_containers/587811/restart.json&quot;,&quot;status&quot;:&quot;asleep&quot;,&quot;uri&quot;:&quot;/user_containers/587811.json&quot;,&quot;wake_uri&quot;:&quot;/user_containers/587811/wake.json&quot;,&quot;webterm_uri&quot;:&quot;/user_containers/587811/webterm&quot;,&quot;host&quot;:null,&quot;password&quot;:&quot;cbdeaf79364faf305a94&quot;,&quot;ports&quot;:{&quot;22&quot;:59939,&quot;3000&quot;:59936,&quot;3306&quot;:59935,&quot;4000&quot;:59934,&quot;443&quot;:59937,&quot;5000&quot;:59933,&quot;5001&quot;:59932,&quot;80&quot;:59938,&quot;8000&quot;:59931,&quot;8080&quot;:59930}}}],&quot;containersLimit&quot;:2,&quot;csrfToken&quot;:&quot;9a8ggyZLn-TIDZIZI4YHj61Nnn9nNtQnhP9O5C2V_4Da_nntvhXIb4h1gYrBKtZLPVzH87x4BuuALgMPVC1f_Q&quot;,&quot;startStatusURI&quot;:&quot;/user_containers/start_status.json&quot;,&quot;startURI&quot;:&quot;/user_containers/start.json&quot;}" data-react-cache-id="user_containers/ContainerSpecs-0"></div></div></div></div></div>
+
+  </div>
+</div>
+
+
+      </article>
+
+      <div class="copyright">Copyright © 2024 ALX, All rights reserved.</div>
+
+    </main>
+
+        <button class="btn btn-primary atop-zendesk" id="search-button" data-search-active="false" data-toggle="modal" data-target="#search-modal">
+  <i aria-hidden="true" class="fa-solid fa-magnifying-glass "></i>
+  <i aria-hidden="true" class="fa-solid fa-window-minimize "></i>
+</button>
+
+        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            autocomplete="off"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0e932b79-b1e7-49d4-88a9-75d1fc357a07"></script>
+        <script type="text/javascript">
+          zE('webWidget', 'prefill', {
+              email: {
+                  value: 'ifedayoprince@gmail.com',
+                  readOnly: true
+              }
+          });
+        </script>
+  </body>
+</html>

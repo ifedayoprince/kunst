@@ -1,0 +1,41 @@
+{
+  "name": "etch",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A CLI tool that sets up the directory of an ALX project.",
+  "author": "Ifedayo Oni <ifedayoprince@gmail.com>",
+  "keywords": [
+    "typescript",
+    "cli",
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
+  "files": [
+    "dist/**/*",
+    "!dist/**/*.test.js"
+  ],
+  "scripts": {
+    "dev": "ts-node ./src/cli.ts",
+    "clean": "rimraf ./dist/ ./exec/",
+    "build": "npm run clean && tsc",
+    "test": "npm run build && ava --verbose",
+    "bundle": "npm run build && pkg . --out-dir ./exec/"
+  },
+  "devDependencies": {
+    "ava": "^2.2.0",
+    "pkg": "^4.4.0",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.10.7",
+    "chalk": "^4.1.2",
+    "cheerio": "1.0.0-rc.12",
+    "commander": "^2.20.0",
+    "figlet": "^1.7.0"
+  }
+}
