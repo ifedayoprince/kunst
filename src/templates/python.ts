@@ -1,5 +1,7 @@
+import chalk from "chalk";
 import { FunctionInfo, extractFunctionInfo } from "../utils/extractor";
 import { Task } from "../utils/findMetadata";
+import { kunstError } from "../utils/logger";
 
 export function generatePythonScript(task: Task, fileName: string): string {
     let functionInfo: FunctionInfo;
@@ -9,7 +11,7 @@ export function generatePythonScript(task: Task, fileName: string): string {
         functionInfo = extractFunctionInfo(task.prototype);
 
         if (!functionInfo) {
-            console.error(`[etch]: error while generating test file '${fileName}'.`)
+            kunstError(`error while generating test file '${chalk.yellow(fileName)}'.`)
             process.exit()
         }
 

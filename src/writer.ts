@@ -4,7 +4,7 @@ import { ProjectData } from "./utils/findMetadata";
 import { mkdir, writeFile } from "fs/promises";
 import { generatePythonScript } from "./templates/python";
 import { generateReadme } from "./templates/readme";
-import { etchError, etchInfo, etchOk } from "./utils/logger";
+import { kunstError, kunstInfo, kunstOk } from "./utils/logger";
 import chalk from "chalk";
 import { programStats } from ".";
 
@@ -31,7 +31,7 @@ export async function generateFilesAndFill(projectData: ProjectData) {
                 await safeWrite(projectData, filePath, out, FileType.PYTHON_SCRIPT)
             } else {
                 programStats.failed++;
-                etchError(`could not generate file '${chalk.yellow(file)}', please set it up yourself.`)
+                kunstError(`could not generate file '${chalk.yellow(file)}', please set it up yourself.`)
             }
         }
     }
@@ -51,7 +51,7 @@ async function safeWrite(projectData: ProjectData, filePath: ParsedPath, content
 }
 
 function fileCreated(fileType: FileType, filePath: ParsedPath) {
-    etchOk(`generated${(fileType == FileType.PYTHON_SCRIPT)
+    kunstOk(`generated${(fileType == FileType.PYTHON_SCRIPT)
         ? " python script"
         : (fileType == FileType.PYTHON_TEST)
             ? " python test"

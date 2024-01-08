@@ -1,12 +1,12 @@
 import { extractFunctionInfo } from "../utils/extractor";
 import { Task } from "../utils/findMetadata";
-import { etchError } from "../utils/logger";
+import { kunstError } from "../utils/logger";
 
 export function generateTest(task: Task, fileName: string): string {
     let functionInfo = extractFunctionInfo(task.prototype);
 
     if (!functionInfo) {
-        etchError(`error while generating test file '${fileName}'.`)
+        kunstError(`error while generating test file '${fileName}'.`)
         process.exit()
     }
     return (

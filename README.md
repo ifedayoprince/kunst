@@ -1,23 +1,27 @@
-# typescript-cli-starter
+# KUNST :: The ALX Bootstrapper
 
-A simple and zero-opinion typescript starter template for building cross-platform command line applications.
 
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/khalidx/typescript-cli-starter.svg?style=flat-square)
+![GitHub](https://img.shields.io/github/license/ifedayoprince/kunst.svg?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ifedayoprince/kunst.svg?style=flat-square)
+![GitHub top language](https://img.shields.io/github/languages/top/ifedayoprince/kunst.svg?style=flat-square)
 
-![GitHub](https://img.shields.io/github/license/khalidx/typescript-cli-starter.svg?style=flat-square)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/khalidx/typescript-cli-starter.svg?style=flat-square)
-![GitHub top language](https://img.shields.io/github/languages/top/khalidx/typescript-cli-starter.svg?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/ifedayoprince/kunst.svg?style=flat-square)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/khalidx/typescript-cli-starter.svg?style=flat-square)
 
-Includes:
+An easy-to-use, standard ALX bootstrapper.
 
-- [TypeScript](https://www.typescriptlang.org/), for writing good code
-- [Ava](https://www.npmjs.com/package/ava), for writing good tests
-- [Commander](https://www.npmjs.com/package/commander), for building CLI applications
-- [Pkg](https://www.npmjs.com/package/pkg), for building cross-platform native executables
+Kunst generates the file and directory structure of an ALX project based on an exported HTML file from the Intranet.
 
-Your application will be installable from `npm` or by sharing your native executables.
+
+## How to Use?
+
+- Install Kunst on your local machine.
+```bash
+npm install kunst
+```
+- Head over to the project on your ALX Intranet and complete the quiz.
+
+- 
 
 ## Usage
 

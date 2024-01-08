@@ -1,5 +1,5 @@
 import { parseProjectFile } from "./utils/findMetadata";
-import { etchError, etchInfo, etchOk } from "./utils/logger";
+import { kunstError, kunstOk } from "./utils/logger";
 import { generateFilesAndFill } from "./writer";
 import figlet from 'figlet'
 
@@ -14,10 +14,10 @@ export const programStats = {
   failed: 0
 }
 
-export async function beginEtch (args: ProgramArgs) {
-  figlet("ETCH", (err, data)=>{
+export async function beginKunst (args: ProgramArgs) {
+  figlet("KUNST", (err, data)=>{
     if (err) {
-      etchError("there was an issue while booting.")
+      kunstError("there was an issue while booting.")
       return;
     }
     console.log(data);
@@ -28,14 +28,14 @@ export async function beginEtch (args: ProgramArgs) {
   await generateFilesAndFill(data);
 
   console.log("\n\n")
-  figlet("ETCHed", (err, data)=>{
+  figlet("KUNSTed", (err, data)=>{
     if (err) {
-      etchError("there was an issue while wrapping up.")
+      kunstError("there was an issue while wrapping up.")
       return;
     }
     console.log(data);
   })
-  etchOk(
+  kunstOk(
 `successfully created:
     - ${programStats.pythonFiles} python files.
     - ${programStats.testFiles} python test files.

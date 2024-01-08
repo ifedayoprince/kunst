@@ -1,13 +1,19 @@
 {
-  "name": "etch",
+  "name": "kunst",
   "private": true,
   "version": "1.0.0",
-  "description": "A CLI tool that sets up the directory of an ALX project.",
+  "description": "A CLI tool that bootstraps an ALX project.",
   "author": "Ifedayo Oni <ifedayoprince@gmail.com>",
+  "homepage": "https://github.com/ifedayoprince/kunst",
+  "repository": "https://github.com/ifedayoprince/kunst",
   "keywords": [
     "typescript",
-    "cli",
-    "starter"
+    "scaffold",
+    "bootstrap",
+    "intranet",
+    "kunst",
+    "konst",
+    "alx"
   ],
   "license": "MIT",
   "main": "./dist/index.js",
@@ -21,16 +27,17 @@
     "clean": "rimraf ./dist/ ./exec/",
     "build": "npm run clean && tsc",
     "test": "npm run build && ava --verbose",
-    "bundle": "npm run build && pkg . --out-dir ./exec/"
+    "bundle": "npm run build && pkg . --out-dir ./exec/",
+    "publish": "npm run build && npm publish"
   },
   "devDependencies": {
     "ava": "^2.2.0",
-    "pkg": "^4.4.0",
     "rimraf": "^2.6.3",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@tsconfig/recommended": "^1.0.3",
     "@types/figlet": "^1.5.8",
     "@types/node": "^20.10.7",
     "chalk": "^4.1.2",
