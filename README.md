@@ -17,46 +17,47 @@ Kunst generates the file and directory structure of an ALX project based on an e
 
 - Install Kunst on your local machine.
 ```bash
-npm install kunst
+npm install -g kunst
 ```
+![kunst installing](/screenshots/Screenshot%202024-01-10%20132434.png)
 - Head over to the project on your ALX Intranet and complete the quiz.
 
-- 
+- Refresh the page and download as HTML-only page (rename if you like).
+![downloading page](/screenshots/Screenshot%202024-01-08%20174415.png)
 
-## Usage
+- Navigate to the directory you stored it
+```
+cd path/to/folder/containing/the/html
+```
 
-### **dev**
+- Run Kunst
+```
+kunst <file_name>
+```
+![kunst running](/screenshots/Screenshot%202024-01-10%20132522.png)
 
-`npm run dev`
+That's it! Let's run `tree` so you can see it properly.
+![tree ran](/screenshots/Screenshot%202024-01-10%20132538.png)
 
-Runs the CLI application.
+Kunst read the HTML file and created all the files we needed to do the project.
 
-You can pass arguments to your application by running `npm run dev -- --your-argument`. The extra `--` is so that your arguments are passed to your CLI application, and not `npm`.
+It even generates boilerplate code to fill them.
+![boilerplate](/screenshots/Screenshot%202024-01-10%20133325.png)
 
-### **clean**
 
-`npm run clean`
+# Fun facts
+- Kunst was built because I'm lazy.
+- Kunst was initially named Etch but that name was taken already.
+- Kunst was built in less than 4 hours.
+- Kunst is pronounced `coo-nst` not `const`. It's German for `art` (I felt like it).
 
-Removes any built code and any built executables.
+# Issues and Contributions
+If you spot an Issue 🪲, dont hesitate to reach out to me!
+For contributions, mail me at: [ifedayoprince@gmail.com](mailto:ifedayoprince@gmail.com)
 
-### **build**
+## Find me on
+[LinkedIn](https://linkedin.com/in/ifedayoprince)
+[Twitter](https://twitter.com/ifedayoprince_)
+[Facebook](https://facebook.com/ifedayo.prince01)
 
-`npm run build`
-
-Cleans, then builds the TypeScript code.
-
-Your built code will be in the `./dist/` directory.
-
-### **test**
-
-`npm run test`
-
-Cleans, then builds, and tests the built code.
-
-### **bundle**
-
-`npm run bundle`
-
-Cleans, then builds, then bundles into native executables for Windows, Mac, and Linux.
-
-Your shareable executables will be in the `./exec/` directory.
+# For The Love Of ALX 💯, `DO HARD THINGS!`

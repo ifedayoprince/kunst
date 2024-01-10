@@ -4,9 +4,10 @@ import { ProjectData } from "./utils/findMetadata";
 import { mkdir, writeFile } from "fs/promises";
 import { generatePythonScript } from "./templates/python";
 import { generateReadme } from "./templates/readme";
-import { kunstError, kunstInfo, kunstOk } from "./utils/logger";
+import { kunstError, kunstOk } from "./utils/logger";
 import chalk from "chalk";
 import { programStats } from ".";
+import { cwd } from "process";
 
 export enum FileType {
     PYTHON_SCRIPT = "python_script",
@@ -38,7 +39,7 @@ export async function generateFilesAndFill(projectData: ProjectData) {
 }
 
 async function safeWrite(projectData: ProjectData, filePath: ParsedPath, content: string, fileType: FileType) {
-    let writePath = join(__dirname, projectData.projectDirectory, filePath.dir, filePath.base)
+    let writePath = join(cwd(), projectData.projectDirectory, filePath.dir, filePath.base)
     try {
         await writeFile(writePath, content)
         fileCreated(fileType, filePath);
