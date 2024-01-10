@@ -4,6 +4,8 @@ import { fstat } from "fs";
 import { readFile } from "fs/promises";
 import * as cheerio from "cheerio";
 import { extractFileNames } from "./extractor";
+import { kunstError } from "./logger";
+import chalk from "chalk";
 
 export interface Task {
     name: string;
@@ -26,7 +28,13 @@ export interface ProjectData {
 
 export async function parseProjectFile(args: ProgramArgs): Promise<ProjectData> {
     let finalPath = join(args.currentDir, args.htmlProjectFile);
-    let file = (await readFile(finalPath)).toString();
+    let file: string;
+    try {
+        file = (await readFile(finalPath)).toString();
+    } catch (e) {
+        kunstError(`file '${chalk.yellow(args.htmlProjectFile)}' does not exist.`)
+        process.exit(1);
+    }
     let $ = cheerio.load(file)
     let projectExport: ProjectData = {
         projectName: "",

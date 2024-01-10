@@ -3,13 +3,21 @@
 import program from 'commander'
 
 import { beginKunst } from './index'
- 
+import { cwd } from 'process'
+
+
 program
   .version('0.1.0')
-  .option('-p, --project [project_file]', 'The single HTML of the project page as downloaded from the intranet.')
-  .parse(process.argv)
+  .name("kunst")
+  .description("A CLI tool that bootstraps an ALX project.")
+  .action((file) => {
+    if (typeof file !== "string")
+      program.help()
 
-beginKunst({
-  htmlProjectFile: program.project,
-  currentDir: __dirname
-})
+    beginKunst({
+      htmlProjectFile: file,
+      currentDir: cwd()
+    });
+  })
+
+program.parse(process.argv)
