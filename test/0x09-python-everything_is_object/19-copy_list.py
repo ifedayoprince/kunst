@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """
-__summary__
+The module containing code for:
+    copy_list
 """
 
 def copy_list(l):
     """
     __summary__
 
-    Params:
-        - l: __param_doc__
+    Args:
+        l (_type_): __param_doc__
     """
 
     pass
