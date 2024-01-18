@@ -11,6 +11,7 @@ export interface ProgramArgs {
 export const programStats = {
   testFiles: 0,
   pythonFiles: 0,
+  answerFiles: 0,
   failed: 0
 }
 

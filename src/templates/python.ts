@@ -20,8 +20,8 @@ export function generatePythonScript(task: Task, fileName: string): string {
     """
     __summary__
 
-    Params:
-${functionInfo.params.map((param) => (`        - ${param}: __param_doc__`)).join("\n")}
+    Args:
+${functionInfo.params.map((param) => (`        ${param} (_type_): __param_doc__`)).join("\n")}
     """
 
     pass
@@ -31,7 +31,8 @@ ${functionInfo.params.map((param) => (`        - ${param}: __param_doc__`)).join
     return (
 `#!/usr/bin/python3
 """
-__summary__
+The module containing code for:
+    ${task.prototype.name}
 """
 
 ${optional}

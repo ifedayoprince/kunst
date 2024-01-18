@@ -1,6 +1,5 @@
 import { join } from "path";
 import { ProgramArgs } from "..";
-import { fstat } from "fs";
 import { readFile } from "fs/promises";
 import * as cheerio from "cheerio";
 import { extractFileNames } from "./extractor";

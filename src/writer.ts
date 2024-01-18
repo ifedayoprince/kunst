@@ -2,8 +2,11 @@ import path, { ParsedPath, join, parse } from "path";
 import { generateTest } from "./templates/tests";
 import { ProjectData } from "./utils/findMetadata";
 import { mkdir, writeFile } from "fs/promises";
+
+import { generateAnswerPredict } from './templates/answer_predict'
 import { generatePythonScript } from "./templates/python";
 import { generateReadme } from "./templates/readme";
+
 import { kunstError, kunstOk } from "./utils/logger";
 import chalk from "chalk";
 import { programStats } from ".";
@@ -12,6 +15,7 @@ import { cwd } from "process";
 export enum FileType {
     PYTHON_SCRIPT = "python_script",
     PYTHON_TEST = "python_test",
+    ANSWER_PREDICT = "answer_predict",
     README = "readme",
     NONE = "none"
 }
@@ -30,6 +34,11 @@ export async function generateFilesAndFill(projectData: ProjectData) {
 
                 let out = generatePythonScript(task, filePath.name)
                 await safeWrite(projectData, filePath, out, FileType.PYTHON_SCRIPT)
+            } else if (filePath.ext == ".txt" && !file.includes("answer")) {
+                programStats.answerFiles++;
+
+                let out = generateAnswerPredict(task, filePath.name)
+                await safeWrite(projectData, filePath, out, FileType.ANSWER_PREDICT)
             } else {
                 programStats.failed++;
                 kunstError(`could not generate file '${chalk.yellow(file)}', please set it up yourself.`)
@@ -58,5 +67,7 @@ function fileCreated(fileType: FileType, filePath: ParsedPath) {
             ? " python test"
             : fileType == FileType.README
                 ? " readme"
-                : ""} file '${chalk.yellow(filePath.base)}' successfully.`)
+                : fileType == FileType.ANSWER_PREDICT
+                    ? " result prediction"
+                    : ""} file '${chalk.yellow(filePath.base)}' successfully.`)
 }
