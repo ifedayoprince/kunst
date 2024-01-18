@@ -40,6 +40,7 @@ export async function beginKunst (args: ProgramArgs) {
 `successfully created:
     - ${programStats.pythonFiles} python files.
     - ${programStats.testFiles} python test files.
+${programStats.answerFiles == 0 ? "" : `    - ${programStats.answerFiles} answer predict files.`}
     and one README file.
 We had ${programStats.failed} unsuccessful attempt(s).`
 )

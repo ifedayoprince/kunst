@@ -25,6 +25,7 @@ export async function generateFilesAndFill(projectData: ProjectData) {
     for (let task of projectData.tasks) {
         for (let file of task.files) {
             let filePath = path.parse(file);
+
             if (filePath.ext == ".txt" && file.includes("tests")) {
                 programStats.testFiles++;
 
@@ -34,7 +35,7 @@ export async function generateFilesAndFill(projectData: ProjectData) {
 
                 let out = generatePythonScript(task, filePath.name)
                 await safeWrite(projectData, filePath, out, FileType.PYTHON_SCRIPT)
-            } else if (filePath.ext == ".txt" && !file.includes("answer")) {
+            } else if (filePath.ext == ".txt" && file.includes("answer")) {
                 programStats.answerFiles++;
 
                 let out = generateAnswerPredict(task, filePath.name)
