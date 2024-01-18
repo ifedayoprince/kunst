@@ -6,6 +6,7 @@ import { kunstError } from "../utils/logger";
 export function generatePythonScript(task: Task, fileName: string): string {
     let functionInfo: FunctionInfo;
     let optional = "";
+    let optionalModule = ""
 
     if (task.prototype) {
         functionInfo = extractFunctionInfo(task.prototype);
@@ -14,6 +15,9 @@ export function generatePythonScript(task: Task, fileName: string): string {
             kunstError(`error while generating test file '${chalk.yellow(fileName)}'.`)
             process.exit()
         }
+
+        optionalModule = `The module containing code for:
+    ${functionInfo.name}`
 
         optional = (
             `${functionInfo.prototype}
@@ -31,8 +35,7 @@ ${functionInfo.params.map((param) => (`        ${param} (_type_): __param_doc__`
     return (
 `#!/usr/bin/python3
 """
-The module containing code for:
-    ${task.prototype.name}
+${optionalModule == "" ? "__summary__" : optionalModule}
 """
 
 ${optional}
